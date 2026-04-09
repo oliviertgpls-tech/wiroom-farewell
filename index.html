@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WiRoom — C'est fini</title>
+  <meta name="description" content="Après 2 ans d'aventure, WiRoom ferme ses portes. Merci à tous." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f5f0;
+      --text: #1a1a18;
+      --muted: #7a7870;
+      --border: #dddad3;
+      --accent-yellow: #FDC323; /* dot jaune du logo */
+      --accent-green: #50BA7C;  /* dot vert du logo */
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', system-ui, sans-serif;
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Layout ── */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    /* ── Logo ── */
+    .logo-wrap {
+      margin-bottom: 64px;
+    }
+    .logo-wrap svg {
+      width: 180px;
+      height: auto;
+    }
+
+    /* ── Headline ── */
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 6vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 40px;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    /* ── Body text ── */
+    .body-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #3a3a38;
+      margin-bottom: 48px;
+    }
+    .body-text p + p {
+      margin-top: 20px;
+    }
+
+    /* ── Divider ── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    /* ── Team section ── */
+    .team-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 520px) {
+      .team-grid { grid-template-columns: 1fr; }
+    }
+
+    .person-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .person-name {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .person-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.875rem;
+      font-weight: 400;
+      transition: color 0.15s;
+    }
+    .link-item:hover { color: #0a66c2; }
+
+    /* LinkedIn icon */
+    .icon-linkedin {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      fill: #0a66c2;
+    }
+
+    /* Site icon */
+    .icon-site {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      fill: var(--muted);
+    }
+    .link-item:hover .icon-site { fill: var(--text); }
+
+    /* ── Sign-off ── */
+    .signoff {
+      margin-top: 56px;
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    /* ── Fade-in animation ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .logo-wrap  { animation: fadeUp 0.6s ease both; }
+    h1          { animation: fadeUp 0.6s 0.1s ease both; }
+    .body-text  { animation: fadeUp 0.6s 0.2s ease both; }
+    hr          { animation: fadeUp 0.6s 0.3s ease both; }
+    .team-label { animation: fadeUp 0.6s 0.35s ease both; }
+    .team-grid  { animation: fadeUp 0.6s 0.4s ease both; }
+    .signoff    { animation: fadeUp 0.6s 0.5s ease both; }
+  </style>
+</head>
+<body>
+<main>
+
+  <!-- Logo -->
+  <div class="logo-wrap">
+    <svg width="1972" height="493" viewBox="0 0 1972 493" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="WiRoom">
+      <path d="M85.2889 378.624L31.0589 169.099H120.785L148.393 300.73L181.424 169.099H253.402L286.926 304.181L315.027 169.099H386.512L335.733 378.624H235.654L208.046 272.136L181.917 378.624H85.2889Z" fill="#1D1D1B"/>
+      <path d="M488.07 382.075C469.336 382.075 454.053 378.624 442.714 372.215C431.375 365.806 422.501 356.439 417.571 345.1C412.148 333.761 409.683 320.943 409.683 306.646V169.099H497.93V294.321C497.93 300.73 499.902 305.66 503.353 309.111C507.297 312.562 511.734 314.534 517.157 314.534C522.58 314.534 528.496 313.055 534.412 309.604L538.849 367.778C532.933 372.708 524.552 376.159 515.185 378.624C505.325 381.089 496.451 382.075 488.07 382.075Z" fill="#1D1D1B"/>
+      <path d="M457.504 148.886C441.235 148.886 429.403 144.449 421.515 136.068C413.627 127.687 409.683 116.841 409.683 104.516C409.683 92.1912 413.627 81.8382 422.008 73.4572C430.389 65.0762 442.221 60.6392 457.011 60.6392C471.801 60.6392 484.126 64.0902 493 71.4852C501.874 78.8802 506.311 89.2332 506.311 103.53C506.311 117.827 502.367 128.673 493.986 137.054C485.605 144.942 473.28 148.886 457.504 148.886Z" fill="#FDC323"/>
+      <path d="M1892.63 379.61C1876.36 379.61 1864.53 375.173 1856.64 366.792C1848.75 358.411 1844.81 347.565 1844.81 335.24C1844.81 322.915 1848.75 312.562 1857.13 304.181C1865.51 295.8 1877.34 291.363 1892.13 291.363C1907.42 291.363 1919.25 294.814 1928.12 302.209C1937 309.111 1941.43 319.957 1941.43 334.254C1941.43 348.551 1937.49 359.397 1929.11 367.778C1920.73 375.666 1908.9 379.61 1892.63 379.61Z" fill="#50BA7C"/>
+      <path d="M613.785 31.0593V461.941" stroke="#1D1D1B" stroke-width="4.93" stroke-miterlimit="10"/>
+      <path d="M697.102 379.61V171.071H783.87V223.329C789.293 204.595 798.167 190.791 809.999 181.917C821.831 173.043 836.128 168.606 852.397 168.606L862.75 242.556C855.848 241.57 849.439 241.077 843.03 241.077C804.576 241.077 785.349 256.853 785.349 288.405V379.61H697.102Z" fill="black"/>
+      <path d="M986.493 383.061C962.829 383.061 942.123 378.624 923.882 369.257C905.641 359.89 891.837 347.565 881.484 331.296C871.131 315.027 866.201 296.293 866.201 275.094C866.201 253.402 871.624 234.668 881.977 218.399C892.33 202.623 906.627 189.805 924.868 180.931C943.109 172.057 963.815 167.62 986.986 167.62C1010.65 167.62 1031.85 172.057 1050.09 180.931C1068.33 189.805 1082.14 202.623 1092 218.399C1101.86 234.175 1106.79 252.909 1106.79 274.601C1106.79 295.8 1101.86 315.027 1091.5 331.296C1081.15 347.565 1067.35 360.383 1049.1 369.257C1031.36 378.624 1010.65 383.061 986.493 383.061ZM987.479 320.45C998.818 320.45 1008.19 316.013 1015.58 307.632C1022.98 299.251 1026.43 288.405 1026.43 275.094C1026.43 261.783 1022.98 250.937 1015.58 242.556C1008.19 234.175 999.311 229.738 987.972 229.738C976.14 229.738 966.28 234.175 958.885 242.556C951.49 250.937 948.039 261.783 948.039 275.094C948.039 288.405 951.49 299.251 958.885 307.632C966.773 316.506 976.14 320.45 987.479 320.45Z" fill="black"/>
+      <path d="M1247.78 383.061C1224.12 383.061 1203.41 378.624 1185.17 369.257C1166.93 359.89 1153.13 347.565 1142.77 331.296C1132.42 315.027 1127.49 296.293 1127.49 275.094C1127.49 253.402 1132.91 234.668 1143.27 218.399C1153.62 202.623 1167.92 189.805 1186.16 180.931C1204.4 172.057 1225.11 167.62 1248.28 167.62C1271.94 167.62 1293.14 172.057 1311.38 180.931C1329.62 189.805 1343.43 202.623 1353.29 218.399C1363.15 234.175 1368.08 252.909 1368.08 274.601C1368.08 295.8 1363.15 315.027 1352.79 331.296C1342.44 347.565 1328.64 360.383 1310.39 369.257C1292.65 378.624 1271.94 383.061 1247.78 383.061ZM1248.77 320.45C1260.11 320.45 1269.48 316.013 1276.87 307.632C1284.27 299.251 1287.72 288.405 1287.72 275.094C1287.72 261.783 1284.27 250.937 1276.87 242.556C1269.48 234.175 1260.6 229.738 1249.26 229.738C1237.43 229.738 1227.57 234.175 1220.18 242.556C1212.78 250.937 1209.33 261.783 1209.33 275.094C1209.33 288.405 1212.78 299.251 1220.18 307.632C1228.06 316.506 1237.43 320.45 1248.77 320.45Z" fill="black"/>
+      <path d="M1399.63 379.61V171.071H1486.4V216.427C1492.31 200.651 1501.19 188.819 1513.02 180.438C1524.36 172.057 1539.15 168.113 1556.4 168.113C1573.66 168.113 1588.45 172.55 1600.28 180.931C1612.6 189.312 1620.98 200.158 1625.91 213.469C1635.28 199.172 1646.62 188.326 1659.44 179.945C1672.26 172.057 1688.03 167.62 1706.27 167.62C1731.91 167.62 1752.12 176.987 1766.42 195.721C1780.72 214.455 1787.62 241.077 1787.62 275.094V379.61H1699.86V271.15C1699.86 246.5 1690.99 234.175 1673.74 234.175C1662.89 234.175 1654.02 238.612 1647.61 247.486C1641.2 256.36 1637.75 268.192 1637.75 282.489V379.61H1549.99V271.15C1549.99 258.332 1547.53 248.472 1543.09 243.049C1538.65 237.133 1532.24 234.175 1523.37 234.175C1512.52 234.175 1503.65 238.612 1497.24 246.993C1490.83 255.374 1487.38 267.206 1487.38 282.489V379.61H1399.63Z" fill="black"/>
+    </svg>
+  </div>
+
+  <!-- Headline -->
+  <h1>WiRoom,<br /><em>c'est fini.</em></h1>
+
+  <!-- Body -->
+  <div class="body-text">
+    <p>
+      Après 2 années à chercher notre modèle et essayer de convaincre agences, boîtes de prod et freelances, nous avons décidé d'arrêter le développement de WiRoom.
+    </p>
+    <p>
+      Le time to market avec une cible focalisée sur l'IA générative est peut-être l'une des raisons de notre échec — mais sans doute pas que.
+    </p>
+    <p>
+      Nous en tirons plein d'enseignements que nous aurons plaisir à partager avec vous lors de futures discussions&nbsp;!
+    </p>
+  </div>
+
+  <hr />
+
+  <!-- Team -->
+  <p class="team-label">En attendant, retrouvez-nous ici</p>
+
+  <div class="team-grid">
+
+    <!-- Olivier -->
+    <div class="person-card">
+      <p class="person-name">Olivier</p>
+      <div class="person-links">
+        <a class="link-item" href="https://www.linkedin.com/in/olivier-tangopoulos-3b55a34/" target="_blank" rel="noopener">
+          <!-- LinkedIn SVG icon -->
+          <svg class="icon-linkedin" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          Profil LinkedIn
+        </a>
+        <a class="link-item" href="https://www.oliviertangopoulos.fr" target="_blank" rel="noopener">
+          <!-- Globe SVG icon -->
+          <svg class="icon-site" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-1.09 0-2.14-.19-3.12-.54.26-.81.52-1.72.72-2.68.47.09.95.14 1.44.14.16 0 .32-.01.48-.02.03.37.05.74.05 1.1 0 .67-.05 1.33-.14 1.97-.48.03-.96.03-1.43.03zm-1.44-4.08c-.23.96-.49 1.87-.75 2.7A8.01 8.01 0 0 1 4 12c0-.28.01-.55.04-.82.53.28 1.1.51 1.71.68.19 1.29.49 2.49.81 3.06zm-4.84-4.08A8.02 8.02 0 0 1 12 4c1.09 0 2.14.19 3.12.54-.26.81-.52 1.72-.72 2.68-.47-.09-.95-.14-1.44-.14-.16 0-.32.01-.48.02-.03-.37-.05-.74-.05-1.1 0-.67.05-1.33.14-1.97.48-.03.96-.05 1.43-.05zm8.28 2.16c.23-.96.49-1.87.75-2.7A8.01 8.01 0 0 1 20 12c0 .28-.01.55-.04.82-.53-.28-1.1-.51-1.71-.68-.19-1.29-.49-2.49-.81-3.06z"/>
+          </svg>
+          oliviertangopoulos.fr
+        </a>
+      </div>
+    </div>
+
+    <!-- Julien -->
+    <div class="person-card">
+      <p class="person-name">Julien</p>
+      <div class="person-links">
+        <a class="link-item" href="https://www.linkedin.com/in/juliencasanova/" target="_blank" rel="noopener">
+          <svg class="icon-linkedin" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          Profil LinkedIn
+        </a>
+        <a class="link-item" href="https://www.juliencasanova.fr/" target="_blank" rel="noopener">
+          <svg class="icon-site" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-1.09 0-2.14-.19-3.12-.54.26-.81.52-1.72.72-2.68.47.09.95.14 1.44.14.16 0 .32-.01.48-.02.03.37.05.74.05 1.1 0 .67-.05 1.33-.14 1.97-.48.03-.96.03-1.43.03zm-1.44-4.08c-.23.96-.49 1.87-.75 2.7A8.01 8.01 0 0 1 4 12c0-.28.01-.55.04-.82.53.28 1.1.51 1.71.68.19 1.29.49 2.49.81 3.06zm-4.84-4.08A8.02 8.02 0 0 1 12 4c1.09 0 2.14.19 3.12.54-.26.81-.52 1.72-.72 2.68-.47-.09-.95-.14-1.44-.14-.16 0-.32.01-.48.02-.03-.37-.05-.74-.05-1.1 0-.67.05-1.33.14-1.97.48-.03.96-.05 1.43-.05zm8.28 2.16c.23-.96.49-1.87.75-2.7A8.01 8.01 0 0 1 20 12c0 .28-.01.55-.04.82-.53-.28-1.1-.51-1.71-.68-.19-1.29-.49-2.49-.81-3.06z"/>
+          </svg>
+          juliencasanova.fr
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Sign-off -->
+  <p class="signoff">À bientôt pour de nouvelles aventures — Olivier &amp; Julien</p>
+
+</main>
+</body>
+</html>
